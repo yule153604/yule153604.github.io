@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows App Recommendation - 精选软件工具</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-logo">💻</span>
+                <span class="nav-title">Windows App Recommendation</span>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" title="切换主题">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1 class="hero-title">发现卓越应用</h1>
+            <p class="hero-subtitle">为您的工作流程精心挑选的专业工具</p>
+            
+            <!-- Search Bar -->
+            <div class="search-container" id="searchContainer">
+                <div class="search-wrapper">
+                    <span class="search-icon-left">🔍</span>
+                    <input type="text" id="searchInput" placeholder="搜索应用、开发者或关键词" class="search-input">
+                    <button class="search-clear" id="searchClear">×</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Navigation -->
+    <section class="category-nav">
+        <div class="container">
+            <div class="category-pills">
+                <button class="category-pill active" data-category="all">
+                    <span class="pill-icon">⭐</span>
+                    <span class="pill-text">推荐</span>
+                </button>
+                <button class="category-pill" data-category="system">
+                    <span class="pill-icon">⚙️</span>
+                    <span class="pill-text">系统工具</span>
+                </button>
+                <button class="category-pill" data-category="office">
+                    <span class="pill-icon">📚</span>
+                    <span class="pill-text">办公学习</span>
+                </button>
+                <button class="category-pill" data-category="media">
+                    <span class="pill-icon">🎵</span>
+                    <span class="pill-text">媒体</span>
+                </button>
+                <button class="category-pill" data-category="productivity">
+                    <span class="pill-icon">⚡</span>
+                    <span class="pill-text">效率工具</span>
+                </button>
+                <button class="category-pill" data-category="network">
+                    <span class="pill-icon">🌐</span>
+                    <span class="pill-text">网络</span>
+                </button>
+                <button class="category-pill" data-category="security">
+                    <span class="pill-icon">🔒</span>
+                    <span class="pill-text">安全</span>
+                </button>
+                <button class="category-pill" data-category="development">
+                    <span class="pill-icon">💻</span>
+                    <span class="pill-text">开发</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-content">
+                <span id="totalCount" class="stats-text">正在加载应用...</span>
+                <div class="stats-actions">
+                    <button class="view-toggle active" data-view="grid" title="网格视图">⊞</button>
+                    <button class="view-toggle" data-view="list" title="列表视图">☰</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Featured Section -->
+            <section class="featured-section" id="featuredSection">
+                <h2 class="section-title">编辑精选</h2>
+                <div class="featured-grid" id="featuredGrid">
+                    <!-- Featured apps will be inserted here -->
+                </div>
+            </section>
+
+            <!-- Categories Section -->
+            <section class="categories-section">
+                <div id="categoriesContainer">
+                    <!-- Categories will be dynamically inserted here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">关于</h3>
+                    <p class="footer-text">精选优质软件，提升您的数字体验</p>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">支持</h3>
+                    <p class="footer-text">所有软件请从官方渠道下载</p>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">法律信息</h3>
+                    <p class="footer-text">&copy; 2025 App Store. 保留所有权利。</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    
+    <script>
+        // 错误处理和调试
+        window.addEventListener('error', function(e) {
+            console.error('JavaScript错误:', e.error);
+            const statsElement = document.getElementById('totalCount');
+            if (statsElement) {
+                statsElement.textContent = '加载失败，请检查控制台';
+                statsElement.style.color = 'red';
+            }
+        });
+        
+        // 检查数据加载
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                if (typeof softwareData === 'undefined') {
+                    console.error('数据文件未加载');
+                    const statsElement = document.getElementById('totalCount');
+                    if (statsElement) {
+                        statsElement.textContent = '数据加载失败';
+                        statsElement.style.color = 'red';
+                    }
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
