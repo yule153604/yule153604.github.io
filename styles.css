@@ -611,6 +611,35 @@ body {
     background: rgba(255, 255, 255, 0.3);
 }
 
+/* Light mode specific styles for Featured Cards */
+[data-theme="light"] .featured-card {
+    background: var(--color-secondary-system-background);
+    color: var(--color-label);
+}
+
+[data-theme="light"] .featured-card .software-name {
+    color: var(--color-label);
+}
+
+[data-theme="light"] .featured-card .software-description {
+    color: var(--color-secondary-label);
+}
+
+[data-theme="light"] .featured-card .software-type {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--color-label);
+}
+
+[data-theme="light"] .featured-card .software-link {
+    background: var(--color-blue);
+    color: white;
+    border: none;
+}
+
+[data-theme="light"] .featured-card .software-link:hover {
+    background: var(--color-blue-dark);
+}
+
 /* Categories Section */
 .category-section {
     margin-bottom: var(--spacing-3xl);
