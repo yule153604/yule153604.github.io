@@ -138,8 +138,8 @@ class AppleAppStoreApp {
         });
         document.querySelector(`[data-view="${view}"]`).classList.add('active');
         
-        // 更新网格样式
-        const grids = document.querySelectorAll('.software-grid');
+        // 更新网格样式 - 包括软件网格和精选网格
+        const grids = document.querySelectorAll('.software-grid, .featured-grid');
         grids.forEach(grid => {
             if (view === 'list') {
                 grid.classList.add('list-view');
@@ -260,6 +260,13 @@ class AppleAppStoreApp {
 
         const html = featuredApps.map(app => this.createFeaturedCardHTML(app)).join('');
         featuredGrid.innerHTML = html;
+        
+        // 应用当前视图模式
+        if (this.currentView === 'list') {
+            featuredGrid.classList.add('list-view');
+        } else {
+            featuredGrid.classList.remove('list-view');
+        }
     }
 
     // 渲染所有内容

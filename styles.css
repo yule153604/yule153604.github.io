@@ -698,6 +698,39 @@ body {
     justify-content: flex-end;
 }
 
+/* Featured Grid List View */
+.featured-grid.list-view {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+}
+
+.featured-grid.list-view .software-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: var(--spacing-md);
+    max-height: 120px;
+}
+
+.featured-grid.list-view .software-header {
+    min-width: 200px;
+    margin-right: var(--spacing-lg);
+}
+
+.featured-grid.list-view .software-description {
+    flex: 1;
+    margin: 0 var(--spacing-lg) 0 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.featured-grid.list-view .software-links {
+    min-width: 120px;
+    justify-content: flex-end;
+}
+
 /* App Cards - Enhanced */
 .software-card {
     background: var(--color-secondary-system-background);
